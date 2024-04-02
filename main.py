@@ -25,11 +25,17 @@ def play_game():
     while(attempts_left > 0):
         if user_guess == target_number:
             print(f"You got it. The answer was {target_number}")
-            attempts_left = 0
+            break
         else:
             attempts_left -= 1
-            print(f"You have {attempts_left} remaining to guess the number.")
+            if attempts_left == 0:
+                break
+            print(f"You have {attempts_left} attempts remaining to guess the number.")
             user_guess = make_guess()
+
+
+    if attempts_left == 0:
+        print(f"You missed it. The answer was {target_number}")
 
 
 play_game()
