@@ -25,6 +25,11 @@ def check_guess(tries_left, u_guess, target):
             tries_left -= 1
             if tries_left == 0:
                 break
+            if u_guess < target:
+                print("Too low.")
+            else:
+                print("Too high")
+            print("Guess again.")
             print(f"You have {tries_left} attempts remaining to guess the number.")
             u_guess = make_guess()
 
