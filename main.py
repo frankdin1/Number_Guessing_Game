@@ -14,6 +14,24 @@ def number_of_attempts():
 def make_guess():
     guess = int(input("Make a guess: "))
     return guess
+
+
+def check_guess(tries_left, u_guess, target):
+    while tries_left > 0:
+        if u_guess == target:
+            print(f"You got it. The answer was {target}")
+            break
+        else:
+            tries_left -= 1
+            if tries_left == 0:
+                break
+            print(f"You have {tries_left} attempts remaining to guess the number.")
+            u_guess = make_guess()
+
+    if tries_left == 0:
+        print(f"You missed it. The answer was {target}")
+
+
 def play_game():
     target_number = random.choice(range(101))
     print(f"target number: {target_number}")
@@ -21,21 +39,7 @@ def play_game():
     attempts_left = number_of_attempts()
     print(f"You have {attempts_left} remaining to guess the number.")
     user_guess = make_guess()
-
-    while(attempts_left > 0):
-        if user_guess == target_number:
-            print(f"You got it. The answer was {target_number}")
-            break
-        else:
-            attempts_left -= 1
-            if attempts_left == 0:
-                break
-            print(f"You have {attempts_left} attempts remaining to guess the number.")
-            user_guess = make_guess()
-
-
-    if attempts_left == 0:
-        print(f"You missed it. The answer was {target_number}")
+    check_guess(attempts_left, user_guess, target_number)
 
 
 play_game()
