@@ -2,12 +2,14 @@ import random
 
 
 def number_of_attempts():
-    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
+    difficulty = input("Choose a difficulty. Type 'easy' or 'hard' or 'very hard': ")
     attempts = 0
     if difficulty == 'easy':
         attempts = 10
     elif difficulty == 'hard':
         attempts = 5
+    elif difficulty == 'very hard':
+        attempts = 2
     return attempts
 
 
